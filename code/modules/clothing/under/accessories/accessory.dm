@@ -845,6 +845,41 @@
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 
+/obj/item/clothing/accessory/sol_pin/sfp
+	name = "Sol First Party pin"
+	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
+	icon_state = "sfp-pin"
+	item_state = "sfp-pin"
+	overlay_state = "sfp-pin"
+
+/obj/item/clothing/accessory/sol_pin/ssup
+	name = "Solarian Socialist Unity Party pin"
+	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
+	icon_state = "ssup-pin"
+	item_state = "ssup-pin"
+	overlay_state = "ssup-pin"
+
+/obj/item/clothing/accessory/sol_pin/spp
+	name = "Solarian People's Party pin"
+	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
+	icon_state = "spp-pin"
+	item_state = "spp-pin"
+	overlay_state = "spp-pin"
+
+/obj/item/clothing/accessory/sol_pin/spdp
+	name = "Solarian Popular Democratic Party pin"
+	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
+	icon_state = "spdp-pin"
+	item_state = "spdp-pin"
+	overlay_state = "spdp-pin"
+
+/obj/item/clothing/accessory/sol_pin/commie
+	name = "Communist Party of the Sol Alliance pin"
+	desc = "A small pin of the Sol Alliance, shaped like a sun and used to indicate party allegiances."
+	icon_state = "commie-pin"
+	item_state = "commie-pin"
+	overlay_state = "commie-pin"
+
 /obj/item/clothing/accessory/dogtags
 	name = "dogtags"
 	desc = "A pair of engraved metal identification tags."
@@ -1174,6 +1209,20 @@
 	desc = "A basic, dull, white chef apron."
 	icon_state = "apron_chef"
 	item_state = "apron_chef"
+	allowed = list(
+		/obj/item/reagent_containers/food/drinks/shaker,
+		/obj/item/material/kitchen/utensil,
+		/obj/item/reagent_containers/food/condiment,
+		/obj/item/reagent_containers/food/drinks/bottle,
+		/obj/item/material/knife
+	)
+// goblinstev's stuff
+/obj/item/clothing/accessory/apron/qeburgerapron
+	name = "Quick-E-Burger Food Technician Apron"
+	desc = "For industrious employees hard at work, the Quick-E-Burger Food Technician Apron is the perfect protection! Supplied and manufactured in bulk by Quick-E-Burger's parent company, Orion Express, the Food Technician Apron is constructed from highly-resistant rubber with ergonomic quick-fastening security straps to ensure it can be made to fit any employee, of any species, anywhere!"
+	icon = 'icons/clothing/suits/quickeburger_apron.dmi'
+	icon_state = "quickeburger_apron"
+	item_state = "quickeburger_apron"
 	allowed = list(
 		/obj/item/reagent_containers/food/drinks/shaker,
 		/obj/item/material/kitchen/utensil,

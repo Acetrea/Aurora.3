@@ -46,13 +46,13 @@
 /datum/gear/utility/journal
 	display_name = "journal"
 	description = "A journal, kind of like a folder, but bigger! And personal."
-	path = /obj/item/journal
+	path = /obj/item/journal/filled
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/notepad
 	display_name = "notepad"
 	description = "A notepad for jotting down notes in meetings or interrogations."
-	path = /obj/item/journal/notepad
+	path = /obj/item/journal/notepad/filled
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/fountainpen
@@ -72,7 +72,7 @@
 
 /datum/gear/utility/paicard
 	display_name = "personal AI device"
-	path = /obj/item/device/paicard
+	path = /obj/item/paicard
 
 /datum/gear/utility/classicwallet
 	display_name = "wallet"
@@ -98,11 +98,11 @@
 
 /datum/gear/utility/recorder
 	display_name = "universal recorder"
-	path = /obj/item/device/taperecorder
+	path = /obj/item/taperecorder
 
 /datum/gear/utility/camera
 	display_name = "camera"
-	path = /obj/item/device/camera
+	path = /obj/item/camera
 
 /datum/gear/utility/himeo_kit
 	display_name = "himean voidsuit kit"
@@ -167,22 +167,6 @@
 	..()
 	gear_tweaks += new /datum/gear_tweak/paper_data()
 
-/datum/gear/utility/pills
-	display_name = "pill bottle selection"
-	description = "A selection of prescription pills. NOTICE: most of these are considered contraband if possessed without the relevant prescription noted in the medical records."
-	path = /obj/item/reagent_containers/pill
-
-/datum/gear/utility/pills/New()
-	..()
-	var/list/pills = list()
-	pills["Emoxanyl"] = /obj/item/storage/pill_bottle/emoxanyl
-	pills["Minaphobin"] = /obj/item/storage/pill_bottle/minaphobin/small
-	pills["Neurostabin "] = /obj/item/storage/pill_bottle/neurostabin
-	pills["Orastabin"] = /obj/item/storage/pill_bottle/orastabin
-	pills["Parvosil"] = /obj/item/storage/pill_bottle/parvosil
-	pills["Corophenidate"] = /obj/item/storage/pill_bottle/corophenidate
-	gear_tweaks += new /datum/gear_tweak/path(pills)
-
 /datum/gear/utility/buddy_tag
 	display_name = "buddy tag"
 	path = /obj/item/clothing/accessory/buddytag
@@ -195,3 +179,35 @@
 /datum/gear/utility/buddy_tag/New()
 	..()
 	gear_tweaks += new /datum/gear_tweak/buddy_tag_config()
+
+/datum/gear/utility/earphones
+	display_name = "earphones selection"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	path = /obj/item/clothing/ears/earphones
+	cost = 1
+
+/datum/gear/utility/earphones/New()
+	..()
+	var/list/earphones = list()
+	earphones["headphones"] = /obj/item/clothing/ears/earphones/headphones
+	earphones["earphones"] = /obj/item/clothing/ears/earphones
+	earphones["earbuds"] = /obj/item/clothing/ears/earphones/earbuds
+	gear_tweaks += new /datum/gear_tweak/path(earphones)
+
+/datum/gear/utility/earphones_music_cartridge
+	display_name = "earphones music cartridge selection"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	path = /obj/item/music_cartridge/audioconsole
+	cost = 1
+
+/datum/gear/utility/earphones_music_cartridge/New()
+	..()
+	var/list/music_cartridges = list()
+	music_cartridges["Konyang Vibes 2463"] = /obj/item/music_cartridge/konyang_retrowave
+	music_cartridges["Top of the Charts 66 (Venusian Hits)"] = /obj/item/music_cartridge/venus_funkydisco
+	music_cartridges["SCC Welcome Package"] = /obj/item/music_cartridge/audioconsole
+	music_cartridges["Spacer Classics Vol. 1"] = /obj/item/music_cartridge/ss13
+	music_cartridges["Indulgence EP (X-Rock)"] = /obj/item/music_cartridge/xanu_rock
+	music_cartridges["Electro-Swing of Adhomai"] = /obj/item/music_cartridge/adhomai_swing
+	music_cartridges["Europa: Best of the 50s"] = /obj/item/music_cartridge/europa_various
+	gear_tweaks += new /datum/gear_tweak/path(music_cartridges)

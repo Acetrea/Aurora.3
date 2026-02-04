@@ -14,8 +14,8 @@
 	level = 2
 	obj_flags = OBJ_FLAG_ROTATABLE
 
-/obj/item/pipe/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
+/obj/item/pipe/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
 	var/pipe_color_check = color || PIPE_COLOR_GREY
 	var/found_color_name = "Unknown"
 	for(var/color_name in GLOB.pipe_colors)
@@ -507,7 +507,7 @@
 /obj/item/pipe/attackby(obj/item/attacking_item, mob/user)
 	..()
 	//*
-	if (!attacking_item.iswrench() && !istype(attacking_item, /obj/item/pipewrench))
+	if (attacking_item.tool_behaviour != TOOL_WRENCH && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
 	if(istype(attacking_item, /obj/item/pipewrench))
 		var/action = tgui_input_list(user, "Change pipe?", "Change pipe", list("Yes", "No"), "No")
@@ -1543,7 +1543,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/pipe_meter/attackby(obj/item/attacking_item, mob/user)
-	if (attacking_item.iswrench())
+	if (attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(!locate(/obj/machinery/atmospherics/pipe, src.loc))
 			to_chat(user, SPAN_WARNING("You need to fasten it to a pipe"))
 			return 1

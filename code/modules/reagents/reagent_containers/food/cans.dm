@@ -19,10 +19,13 @@
 	icon = 'icons/obj/item/reagent_containers/food/drinks/soda.dmi'
 	drop_sound = 'sound/items/drop/soda.ogg'
 	pickup_sound = 'sound/items/pickup/soda.ogg'
-	desc_info = "Click it in your hand to open it.\
-					If it's carbonated and closed, you can shake it by clicking on it with harm intent. \
-					If it's empty, you can crush it on your forehead by selecting your head and clicking on yourself with harm intent. \
-					You can also crush cans on other people's foreheads as well."
+
+/obj/item/reagent_containers/food/drinks/cans/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Click it in your hand to open it."
+	. += "If it's carbonated and closed, you can shake it by clicking on it with harm intent."
+	. += "If it's empty, you can crush it on your forehead by selecting your head and clicking on yourself with harm intent."
+	. += "You can also crush cans on other people's foreheads as well."
 
 /obj/item/reagent_containers/food/drinks/cans/attack(mob/living/target_mob, mob/living/user, target_zone)
 	if(iscarbon(target_mob) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
@@ -69,7 +72,7 @@
 			qdel(grenade_casing)
 			update_icon()
 
-	if(attacking_item.isscrewdriver() && bombcasing > BOMBCASING_EMPTY)
+	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER && bombcasing > BOMBCASING_EMPTY)
 		if(bombcasing == BOMBCASING_LOOSE)
 			bombcasing = BOMBCASING_SECURE
 			shrapnelcount = 14
@@ -104,7 +107,7 @@
 		else
 			to_chat(user, SPAN_WARNING("There is no opening on \the [name] for the steel wool!"))
 
-	else if(attacking_item.iswirecutter() && fuselength)
+	else if(attacking_item.tool_behaviour == TOOL_WIRECUTTER && fuselength)
 		switch(fuselength)
 			if(1 to FUSELENGTH_MIN) // you can't increase the fuse with wirecutters and you can't trim it down below 3, so just remove it outright.
 				user.visible_message("<b>[user]</b> removes the steel wool from \the [name].",

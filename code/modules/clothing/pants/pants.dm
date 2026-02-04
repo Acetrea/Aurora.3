@@ -41,7 +41,7 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 		M.update_inv_pants()
 
 /obj/item/clothing/pants/verb/change_layer()
-	set category = "Object"
+	set category = "Object.Equipped"
 	set name = "Change Pants Layer"
 	set src in usr
 
@@ -83,48 +83,6 @@ ABSTRACT_TYPE(/obj/item/clothing/pants)
 	desc = "A pair of dust beige khaki pants."
 	icon_state = "khaki"
 	item_state = "khaki"
-
-/obj/item/clothing/pants/highvis
-	name = "high visibility pants"
-	desc = "A pair of loose-fitting, high visibility pants to help the wearer be recognizable in high traffic areas with large industrial equipment."
-	icon = 'icons/clothing/kit/highvis.dmi'
-	icon_state = "pants_highvis"
-	item_state = "pants_highvis"
-
-/obj/item/clothing/pants/highvis/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_pants_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "[icon_state][species_sprite_adaption_type]-emis", alpha = src.alpha)
-		I.AddOverlays(emissive_overlay)
-	return I
-
-/obj/item/clothing/pants/highvis_alt
-	name = "high visibility pants"
-	desc = "A pair of bright yellow pants with reflective stripes. For use in operations, engineering, and sometimes even law enforcement, in cold and poor weather or when visibility is low."
-	icon = 'icons/clothing/kit/highvis.dmi'
-	icon_state = "pants_highvis_alt"
-	item_state = "pants_highvis_alt"
-
-/obj/item/clothing/pants/highvis_alt/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_pants_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "[icon_state][species_sprite_adaption_type]-emis", alpha = src.alpha)
-		I.AddOverlays(emissive_overlay)
-	return I
-
-/obj/item/clothing/pants/highvis_red
-	name = "high visibility pants"
-	desc = "A pair of red pants with reflective stripes. For use in different departments, commonly found in civilian emergency services, in cold and poor weather or when visibility is low."
-	icon = 'icons/clothing/kit/highvis.dmi'
-	icon_state = "pants_highvis_red"
-	item_state = "pants_highvis_red"
-
-/obj/item/clothing/pants/highvis_red/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
-	var/image/I = ..()
-	if(slot == slot_pants_str)
-		var/image/emissive_overlay = emissive_appearance(mob_icon, "[icon_state][species_sprite_adaption_type]-emis", alpha = src.alpha)
-		I.AddOverlays(emissive_overlay)
-	return I
 
 /obj/item/clothing/pants/camo
 	name = "camouflage pants"

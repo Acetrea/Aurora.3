@@ -1,11 +1,11 @@
 /*
  * Holds procs designed to help with filtering text
  * Contains groups:
- *			SQL sanitization
- *			Text sanitization
- *			Text searches
- *			Text modification
- *			Misc
+ * * SQL sanitization
+ * * Text sanitization
+ * * Text searches
+ * * Text modification
+ * * Misc
  */
 
 
@@ -13,7 +13,9 @@
  * SQL sanitization
  */
 
-// Run all strings to be used in an SQL query through this proc first to properly escape out injection attempts.
+/**
+ * Run all strings to be used in an SQL query through this proc first to properly escape out injection attempts.
+ */
 /proc/sanitizeSQL(var/t as text)
 	var/sqltext = GLOB.dbcon.Quote(t);
 	return copytext_char(sqltext, 2, length(sqltext));//Quote() adds quotes around input, we already do that
@@ -665,6 +667,9 @@
 	t = replacetext(t, "\[barcode\]", "<img src = barcode[rand(0, 3)].png>")
 	t = replacetext(t, "\[time\]", "[worldtime2text()]")
 	t = replacetext(t, "\[date\]", "[worlddate2text()]")
+	t = replacetext(t, "\[tajtime\]", "[tajaran_time()]")
+	t = replacetext(t, "\[tajdate\]", "[tajaran_full_date()]")
+	t = replacetext(t, "\[cr\]", "电")
 	t = replacetext(t, "\[editorbr\]", "<BR>")
 	t = replacetext(t, @"[image id=([\w]*?\.[\w]*?)]", "<img style=\"display:block;width:90%;\" src = [GLOB.config.docs_image_host]$1></img>")
 	return t

@@ -43,6 +43,12 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/machinery/power/rad_collector, list(
 	/// How long to wait between alert messages, if radiation input exceeds safe levels
 	var/alert_delay = 10 SECONDS
 
+/obj/machinery/power/rad_collector/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if (..(user, 3))
+		var/last_power_kw = round(last_power / 1000, 0.1)
+		. += "The meter indicates that \the [src] is collecting [last_power_kw] kW."
+
 /obj/machinery/power/rad_collector/Initialize()
 	. = ..()
 	GLOB.rad_collectors += src
@@ -122,13 +128,13 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/machinery/power/rad_collector, list(
 		update_icon()
 		return TRUE
 
-	if(attacking_item.iscrowbar())
+	if(attacking_item.tool_behaviour == TOOL_CROWBAR)
 		if(loaded_tank && !locked)
 			to_chat(user, SPAN_NOTICE("You detach and remove \the [loaded_tank.name]."))
 			eject(user)
 			return TRUE
 
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		if(loaded_tank)
 			USE_FEEDBACK_FAILURE("Remove the phoron tank first.")
 			return TRUE
@@ -177,11 +183,6 @@ GLOBAL_LIST_INIT_TYPED(rad_collectors, /obj/machinery/power/rad_collector, list(
 	active = FALSE
 	desc += " This one is destroyed beyond repair."
 	update_icon()
-
-/obj/machinery/power/rad_collector/get_examine_text(user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if (..(user, 3))
-		. += "The meter indicates that \the [src] is collecting [last_power] W."
 
 /obj/machinery/power/rad_collector/return_air()
 	if(loaded_tank)

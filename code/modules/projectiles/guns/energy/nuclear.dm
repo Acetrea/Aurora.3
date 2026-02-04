@@ -1,9 +1,6 @@
 /obj/item/gun/energy/gun
 	name = "energy carbine"
 	desc = "A NanoTrasen designed energy-based carbine with two settings: Stun and kill."
-	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To switch between stun and lethal, click the weapon \
-	in your hand.  To recharge this weapon, use a weapon recharger."
 	desc_extended = "The NT EC-4 is an energy carbine developed and produced by NanoTrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
 	icon = 'icons/obj/guns/ecarbine.dmi'
 	icon_state = "energystun"
@@ -12,11 +9,11 @@
 	slot_flags = SLOT_BELT
 	accuracy = 1
 	max_shots = 15
-	can_turret = 1
+	can_turret = TRUE
 	secondary_projectile_type = /obj/projectile/beam
 	secondary_fire_sound = 'sound/weapons/laser1.ogg'
-	can_switch_modes = 1
-	turret_is_lethal = 0
+	can_switch_modes = TRUE
+	turret_is_lethal = FALSE
 
 	projectile_type = /obj/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
@@ -33,23 +30,20 @@
 
 /obj/item/gun/energy/gun/mounted
 	name = "mounted energy gun"
-	self_recharge = 1
-	use_external_power = 1
-	can_turret = 0
+	self_recharge = TRUE
+	use_external_power = TRUE
+	can_turret = FALSE
 
 /obj/item/gun/energy/gun/nuclear
 	name = "advanced energy gun"
 	desc = "An energy gun with an experimental miniaturized reactor."
-	desc_info = "This is an energy weapon. To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
-	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To switch between stun and lethal, click the weapon \
-	in your hand.  Unlike most weapons, this weapon recharges itself."
 	icon = 'icons/obj/guns/nucgun.dmi'
 	icon_state = "nucgun"
 	item_state = "nucgun"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 5, TECH_POWER = 3)
 	slot_flags = SLOT_BELT
 	force = 18 //looks heavier than a pistol
-	self_recharge = 1
+	self_recharge = TRUE
 	modifystate = null
 	reliability = 95
 	turret_sprite_set = "nuclear"
@@ -61,6 +55,10 @@
 		)
 
 	var/lightfail = 0
+
+/obj/item/gun/energy/gun/nuclear/mechanics_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	. += "Unlike most weapons, this weapon recharges itself."
 
 /obj/item/gun/energy/gun/nuclear/get_cell()
 	return DEVICE_NO_CELL
@@ -135,12 +133,12 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shots = 10
 	fire_delay = 4
-	can_turret = 1
+	can_turret = TRUE
 	secondary_projectile_type = /obj/projectile/beam/pistol
 	secondary_fire_sound = 'sound/weapons/laser1.ogg'
-	can_switch_modes = 1
+	can_switch_modes = TRUE
 	turret_sprite_set = "carbine"
-	turret_is_lethal = 0
+	turret_is_lethal = FALSE
 
 	projectile_type = /obj/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
@@ -242,7 +240,7 @@
 	fire_delay = 5
 	secondary_projectile_type = /obj/projectile/beam/pistol/scc/weak
 	secondary_fire_sound = 'sound/weapons/energy_repeater.ogg'
-	can_switch_modes = 1
+	can_switch_modes = TRUE
 
 	projectile_type = /obj/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
@@ -311,7 +309,7 @@
 	max_shots = 25
 	secondary_projectile_type = /obj/projectile/beam
 	secondary_fire_sound = 'sound/weapons/laser1.ogg'
-	can_switch_modes = 1
+	can_switch_modes = TRUE
 
 	projectile_type = /obj/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
@@ -325,10 +323,10 @@
 	has_item_ratio = FALSE
 
 /obj/item/gun/energy/gun/qukala/mounted
-	self_recharge = 1
-	use_external_power = 1
+	self_recharge = TRUE
+	use_external_power = TRUE
 	recharge_time = 10
-	can_turret = 0
+	can_turret = FALSE
 
 /obj/item/gun/energy/fedpistol
 	name = "nralakk energy pistol"
@@ -339,7 +337,7 @@
 	item_state = "psipistolstun100"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	pin = /obj/item/device/firing_pin/psionic
+	pin = /obj/item/firing_pin/psionic
 	max_shots = 10
 	fire_delay = 4
 	can_turret = FALSE
@@ -356,4 +354,4 @@
 		)
 
 /obj/item/gun/energy/fedpistol/nopsi
-	pin = /obj/item/device/firing_pin
+	pin = /obj/item/firing_pin

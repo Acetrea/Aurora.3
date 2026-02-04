@@ -19,6 +19,16 @@
 
 	can_hold_mob = TRUE
 
+/obj/vehicle/train/feedback_hints(mob/user, distance, is_adjacent)
+	. += ..()
+	if(lead)
+		. += SPAN_NOTICE("It is being towed by \the [lead] in the [dir2text(get_dir(src, lead))].")
+	if(tow)
+		. += SPAN_NOTICE("It towing \the [tow] in the [dir2text(get_dir(src, tow))].")
+
+/obj/vehicle/train/cargo/engine/antagonist_hints(mob/user, distance, is_adjacent)
+	. = ..()
+	. += "When emagged, it can be used to run people over with."
 
 //-------------------------------------------
 // Standard procs
@@ -27,13 +37,6 @@
 	..()
 	for(var/obj/vehicle/train/T in orange(1, src))
 		latch(T)
-
-/obj/vehicle/train/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(lead)
-		. += SPAN_NOTICE("It is being towed by \the [lead] in the [dir2text(get_dir(src, lead))].")
-	if(tow)
-		. += SPAN_NOTICE("It towing \the [tow] in the [dir2text(get_dir(src, tow))].")
 
 /obj/vehicle/train/Move()
 	var/old_loc = get_turf(src)
@@ -104,7 +107,7 @@
 		unload(user)			//unload if loaded
 
 /obj/vehicle/train/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.iswrench())
+	if(attacking_item.tool_behaviour == TOOL_WRENCH)
 		attacking_item.play_tool_sound(get_turf(src), 70)
 		unattach(user)
 		return

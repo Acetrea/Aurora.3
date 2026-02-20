@@ -2636,6 +2636,10 @@
 	pixel_x = -7;
 	pixel_y = 8
 	},
+/obj/item/paper/stickynotes/pad/random{
+	pixel_x = 10;
+	pixel_y = -3
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/rnd/lab)
 "apc" = (
@@ -7727,6 +7731,10 @@
 	pixel_y = 2
 	},
 /obj/item/pen,
+/obj/item/paper/stickynotes/pad/random{
+	pixel_x = 10;
+	pixel_y = -3
+	},
 /turf/simulated/floor/carpet/purple,
 /area/horizon/command/heads/rd)
 "aXu" = (
@@ -12994,15 +13002,7 @@
 	},
 /area/centcom/control)
 "bHP" = (
-/obj/machinery/door/airlock/glass_mining{
-	dir = 1;
-	name = "Operations Bay";
-	req_one_access = list(26,29,31,48,67,70)
-	},
 /obj/machinery/door/firedoor,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
@@ -13011,6 +13011,11 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
+	},
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1;
+	name = "Operations Bay";
+	req_one_access = list(26,29,31,48,67,70)
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/operations/office)
@@ -16675,6 +16680,10 @@
 /obj/item/stamp/hos,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
+	},
+/obj/item/paper/stickynotes/pad/random{
+	pixel_x = 10;
+	pixel_y = -3
 	},
 /turf/simulated/floor/carpet,
 /area/horizon/command/heads/hos)
@@ -25026,16 +25035,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/glass_mining{
-	dir = 1;
-	name = "Operations Bay";
-	req_one_access = list(26,29,31,48,67,70)
-	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow{
 	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/glass_mining{
+	dir = 1;
+	name = "Operations Bay";
+	req_one_access = list(26,29,31,48,67,70)
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/operations/office)
@@ -26047,6 +26059,10 @@
 /obj/item/folder/sec,
 /obj/item/pen,
 /obj/item/paper_bin,
+/obj/item/paper/stickynotes/pad/random{
+	pixel_x = 10;
+	pixel_y = -3
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/warden)
 "dsE" = (
@@ -29717,9 +29733,6 @@
 "dRR" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
-	},
-/obj/structure/sign/crush{
-	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/turbolift/scc_ship/robotics_lift)
@@ -34115,9 +34128,6 @@
 "ewT" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -40383,9 +40393,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/hallway/primary/deck_3/port)
 "fpB" = (
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -54633,9 +54640,6 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
@@ -63165,8 +63169,6 @@
 	name = "Storage";
 	req_one_access = list(20,30,56)
 	},
-/obj/random/telecrystals,
-/obj/random/telecrystals,
 /obj/random/finances{
 	pixel_y = 5
 	},
@@ -74979,6 +74981,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
+/obj/item/tape_roll,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/operations/commissary)
 "jXA" = (
@@ -78599,12 +78602,13 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/disposalpipe/junction{
-	dir = 8;
-	icon_state = "pipe-j2"
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/sortjunction/flipped{
+	sortType = "Commissary";
+	name = "Commissary";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/operations/commissary)
@@ -83199,6 +83203,10 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/east,
+/obj/item/paper/stickynotes/pad/random{
+	pixel_x = 10;
+	pixel_y = -3
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/rnd/telesci)
 "kYT" = (
@@ -86379,9 +86387,6 @@
 "ltg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
@@ -107876,7 +107881,7 @@
 	dir = 5
 	},
 /obj/structure/cable/green{
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/operations/office)
@@ -110096,6 +110101,11 @@
 	dir = 9
 	},
 /obj/item/storage/toolbox/mechanical,
+/obj/machinery/requests_console/west{
+	department = "Machinist Workshop";
+	departmentType = 2;
+	name = "Machinist Requests Console"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/operations/machinist)
 "oFM" = (
@@ -126257,6 +126267,10 @@
 	dir = 2
 	},
 /obj/effect/floor_decal/industrial/hatch_door/yellow,
+/obj/structure/sign/crush{
+	pixel_y = -32;
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/stairwell/port/deck_2)
 "qPg" = (
@@ -140725,7 +140739,8 @@
 /obj/structure/table/reinforced/steel,
 /obj/item/quikpay{
 	destinationact = "Operations";
-	pixel_y = 3
+	pixel_y = 3;
+	shop_name = "Commissary Quikpay"
 	},
 /obj/machinery/power/outlet,
 /obj/machinery/door/blast/shutters{
@@ -156029,6 +156044,12 @@
 	pixel_x = -3;
 	pixel_y = 6
 	},
+/obj/machinery/requests_console/north{
+	department = "Commissary";
+	departmentType = 2;
+	name = "Commissary Requests Console";
+	pixel_y = 32
+	},
 /obj/machinery/door/blast/shutters{
 	dir = 4;
 	id = "horizon_commissary_desk"
@@ -156533,9 +156554,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/tiled,
 /area/horizon/operations/office)
 "uNZ" = (
@@ -161102,6 +161120,10 @@
 	},
 /obj/item/stack/packageWrap,
 /obj/item/hand_labeler,
+/obj/item/paper/stickynotes/pad/random{
+	pixel_x = 10;
+	pixel_y = -3
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/office)
 "vvQ" = (
@@ -165263,6 +165285,10 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
+/obj/item/paper/stickynotes/pad/random{
+	pixel_x = -10;
+	pixel_y = -3
+	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/rnd/xenological)
 "vZH" = (
@@ -175766,10 +175792,10 @@
 	sortType = "Commissary";
 	name = "Commissary"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/horizon/hallway/primary/deck_2/fore)
 "xqH" = (
@@ -177921,6 +177947,10 @@
 	pixel_x = -8
 	},
 /obj/item/card/id/captains_spare,
+/obj/item/paper/monitorkey{
+	pixel_y = -6;
+	pixel_x = 9
+	},
 /turf/simulated/floor/wood,
 /area/horizon/command/heads/captain)
 "xFl" = (
@@ -179592,6 +179622,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/operations/office)
